@@ -5,7 +5,7 @@ const EventComponent: React.FunctionComponent = () => {
   };
 
   const onDragStart = (event: React.DragEvent<HTMLDivElement>) => { 
-    console.log(event.movementX)
+    console.log(event)
   };
 
   return (
