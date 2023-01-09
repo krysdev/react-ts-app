@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const people = [
   { person: 'x', age: 20 },
@@ -7,9 +7,17 @@ const people = [
 ];
 
 const UserSearch: React.FunctionComponent = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null); // when defining REF it has to be 'type of HTML element or null' and  null as a default value
   const [name, setName] = useState('');
   const [user, setUser] = useState<{person: string, age: number} | undefined>();
-    
+  
+  useEffect(() => {
+    if (!inputRef.current){                              // and also a type guard 
+      return;
+    }
+
+    return inputRef.current.focus();
+  }, [])
 
   const onClick = () => {
     const weGotHim = people.find((el) => {
@@ -23,7 +31,7 @@ const UserSearch: React.FunctionComponent = () => {
     <div>
       Search
       <br />
-      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <input ref={inputRef} value={name} onChange={(e) => setName(e.target.value)} />
       <br />
       <button onClick={onClick}>Search</button>
       <div>

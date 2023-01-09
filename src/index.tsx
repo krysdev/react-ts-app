@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import EventComponent from './events/EventComponent';
 import './index.css';
 // import App from './App';
 // import List from './state/List';
+// import EventComponent from './events/EventComponent';
 // import UserSearch from './state/UserSearch';
+import UserSearch from './refs/UserSearch';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/* <List /> */}
-    {/* <UserSearch/> */}
-    <EventComponent/>
+    {/* <EventComponent/> */}
+    <UserSearch/>
   </React.StrictMode>
 );
